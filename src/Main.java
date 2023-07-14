@@ -47,5 +47,28 @@ public class Main {
         for (Animal actual : animals) {
             System.out.println(actual);
         }
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+
+        List<Animal> mixed = new ArrayList<>();
+        lines = FileReader.fileLineByLine("res/vegyes.txt");
+        for (String line : lines) {
+            String[] linesAsArray = line.split(",");
+            if (linesAsArray[0].equals("csirke")) {
+                mixed.add(new Chicken(Integer.parseInt(linesAsArray[1]),
+                        Double.parseDouble(linesAsArray[2])));
+            } else if (linesAsArray[0].equals("kutya")) {
+                mixed.add(new Dog(linesAsArray[1],
+                        Integer.parseInt(linesAsArray[2]), linesAsArray[3]));
+            } else {
+                System.out.println("Cannot be added, because it is not an animal.");
+            }
+        }
+
+        for (Animal animal : mixed) {
+            System.out.println(animal);
+        }
     }
 }
