@@ -1,1 +1,1 @@
-public record Chicken(int eggPerSec, int weight) {}
+public record Chicken(int eggPerSec, double weight) implements Animal {}

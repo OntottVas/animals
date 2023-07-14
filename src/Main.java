@@ -15,5 +15,17 @@ public class Main {
         for (var actual : dogs) {
             System.out.println(actual);
         }
+
+        lines = FileReader.fileLineByLine("res/chicken.txt");
+        List<Chicken> chickens = new ArrayList<>();
+        for (String line : lines) {
+            String[] lineAsArray = line.split(",");
+            chickens.add(new Chicken(Integer.parseInt(lineAsArray[0]),
+                    Double.parseDouble(lineAsArray[1])));
+        }
+
+        for (Chicken chicken : chickens) {
+            System.out.println(chicken);
+        }
     }
 }
