@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<String> lines = FileReader.fileLineByLine("res/dog.txt");
+        /*List<String> lines = FileReader.fileLineByLine("res/dog.txt");
         List<Dog> dogs = new ArrayList<>();
         for (String line : lines) {
             String[] lineAsArray = line.split(",");
@@ -26,6 +26,26 @@ public class Main {
 
         for (Chicken chicken : chickens) {
             System.out.println(chicken);
+        }*/
+
+
+        List<Animal> animals = new ArrayList<>();
+        List<String> lines = FileReader.fileLineByLine("res/dog.txt");
+        for (String line : lines) {
+            String[] array = line.split(",");
+            animals.add(new Dog(array[0],
+                    Integer.parseInt(array[1]),
+                    array[2]));
+        }
+        lines = FileReader.fileLineByLine("res/chicken.txt");
+        for (String line : lines) {
+            String[] array = line.split(",");
+            animals.add(new Chicken(Integer.parseInt(array[0]),
+                    Double.parseDouble(array[1])));
+        }
+
+        for (Animal actual : animals) {
+            System.out.println(actual);
         }
     }
 }
